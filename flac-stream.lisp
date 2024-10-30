@@ -53,6 +53,7 @@
      &allow-other-keys)
   (remf args :class)
   (let ((streamer (flac-open filename
+			     :character-encoding :utf-8
                              :class class
                              :class-initargs (list* :filename filename
                                                     :output-rate output-rate
