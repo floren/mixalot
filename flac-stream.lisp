@@ -164,3 +164,7 @@
 (defmethod streamer-position ((stream flac-streamer) mixer)
   (declare (ignore mixer))
   (flac-stream-position stream))
+
+(defmethod streamer-sample-rate ((stream flac-streamer))
+  (with-slots (sample-rate) stream
+    sample-rate))

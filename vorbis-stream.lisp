@@ -184,3 +184,7 @@
   (declare (ignore mixer))
   (with-slots (position) stream
     position))
+
+(defmethod streamer-sample-rate ((stream vorbis-streamer))
+  (with-slots (sample-rate) stream
+    sample-rate))

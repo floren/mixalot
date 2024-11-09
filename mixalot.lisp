@@ -42,6 +42,7 @@
            #:streamer-seek
            #:streamer-position
            #:streamer-note-completion
+	   #:streamer-sample-rate
 
            #:mixer
            #:mixer-stream-lock
@@ -400,6 +401,12 @@
   (:documentation "Returns current position within a seekable stream.")
   (:method (stream mixer)
     (declare (ignore stream mixer))
+    nil))
+
+(defgeneric streamer-sample-rate (stream)
+  (:documentation "Returns sample rate of the stream.")
+  (:method (stream)
+    (declare (ignore stream))
     nil))
 
 
@@ -873,3 +880,7 @@ should be output in STREAMER-MIX-INTO or STREAMER-WRITE-INTO."
 (defmethod mixer-remove-streamer ((mixer dummy-mixer) streamer)
   (declare (ignore streamer))
   (funcall (dummy-mixer-callback mixer)))
+
+(defmethod streamer-sample-rate ((stream vector-streamer))
+  ;; I don't really know what to do here
+  1)

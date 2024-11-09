@@ -186,3 +186,7 @@ the file cannot be opened or another error occurs."
   (declare (ignore mixer))
   (with-slots (position) stream
     position))
+
+(defmethod streamer-sample-rate ((stream mp3-streamer))
+  (with-slots (sample-rate) stream
+    sample-rate))
